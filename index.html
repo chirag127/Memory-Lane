@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Lane - Enhanced Bookmarking Extension</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent-primary: #4a90e2;
+            --accent-secondary: #3a80d2;
+            --accent-tertiary: #ffcc00;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+            --container-width: 1200px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        header {
+            padding: var(--spacing-md) 0;
+            background-color: var(--bg-secondary);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: var(--accent-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon {
+            font-size: 24px;
+            color: white;
+        }
+
+        .brand-info h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .brand-info p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: var(--spacing-sm);
+        }
+
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all var(--transition-speed) ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            border: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-secondary);
+        }
+
+        .btn-secondary {
+            background-color: var(--bg-tertiary);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background-color: #3a3a3a;
+        }
+
+        .hero {
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 800px;
+            margin: 0 auto var(--spacing-lg);
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-md);
+        }
+
+        .hero-image {
+            margin-top: var(--spacing-lg);
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .feature-card {
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card h3 {
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .steps-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            margin-bottom: var(--spacing-md);
+            gap: var(--spacing-md);
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .step-content h3 {
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: var(--spacing-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-item {
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            text-align: center;
+            width: 120px;
+        }
+
+        .tech-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--accent-primary);
+        }
+
+        .tech-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .usage-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .usage-item {
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .usage-item h3 {
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .usage-item p {
+            color: var(--text-secondary);
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--spacing-md);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--spacing-md);
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+
+            .logo-container {
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            .step {
+                flex-direction: column;
+                gap: var(--spacing-xs);
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto;
+            }
+
+            .footer-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <div class="logo">
+                    <span class="logo-icon">📝</span>
+                </div>
+                <div class="brand-info">
+                    <h1>Memory Lane</h1>
+                    <p>Enhanced Bookmarking Extension</p>
+                </div>
+            </div>
+            <div class="header-buttons">
+                <a href="https://github.com/chirag127/Memory-Lane" target="_blank" class="btn btn-secondary">
+                    <span>GitHub</span>
+                </a>
+                <a href="privacy-policy.html" target="_blank" class="btn btn-secondary">
+                    <span>Privacy Policy</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2 class="animate">Remember Why You Bookmarked</h2>
+            <p class="animate delay-1">
+                Memory Lane brings context and nostalgia to your web browsing by surfacing notes, thoughts, and snapshots you saved when you originally bookmarked a page.
+            </p>
+            <div class="hero-buttons animate delay-2">
+                <a href="https://github.com/chirag127/Memory-Lane" target="_blank" class="btn btn-primary">
+                    <span>Download Extension</span>
+                </a>
+                <a href="#features" class="btn btn-secondary">
+                    <span>Learn More</span>
+                </a>
+            </div>
+            <img src="extension/images/step2.png" alt="Memory Lane Extension Screenshot" class="hero-image animate delay-3">
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Memory Lane</h2>
+                <p>Enhancing your browsing experience with context and memories</p>
+            </div>
+            <div class="usage-container">
+                <div class="usage-item">
+                    <p>
+                        Have you ever bookmarked a page and later forgotten why you saved it? Memory Lane solves this problem by allowing you to add notes, tags, and even visual snapshots when you bookmark a page. When you revisit the page, Memory Lane shows you your original context, helping you remember exactly why you saved it in the first place.
+                    </p>
+                    <p style="margin-top: var(--spacing-sm);">
+                        Whether you're a researcher collecting sources, a developer saving code snippets, or just someone who wants to remember why a particular article was important, Memory Lane helps you maintain context across your browsing history.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Key Features</h2>
+                <p>Discover what makes Memory Lane special</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>Enhanced Bookmarking</h3>
+                    <p>Save pages with notes, tags, and visual snapshots to capture your thoughts at the moment.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Contextual Recall</h3>
+                    <p>When revisiting a page, see your original notes and thoughts in a non-intrusive popup.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Timeline View</h3>
+                    <p>Browse your saved memories chronologically to see your browsing journey over time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏷️</div>
+                    <h3>Tag Organization</h3>
+                    <p>Categorize and filter your memories with tags for easy retrieval and organization.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🕰️</div>
+                    <h3>Wayback Machine</h3>
+                    <p>Integration with the Internet Archive's Wayback Machine to preserve page snapshots.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Privacy-Focused</h3>
+                    <p>All your data is stored locally on your device, ensuring your privacy and security.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="installation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Installation</h2>
+                <p>Get started with Memory Lane in a few simple steps</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Download the Extension</h3>
+                        <p>Clone or download the repository from GitHub: <a href="https://github.com/chirag127/Memory-Lane" target="_blank" style="color: var(--accent-primary);">Memory Lane Repository</a></p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Open Chrome Extensions Page</h3>
+                        <p>Navigate to <code style="background-color: var(--bg-tertiary); padding: 2px 5px; border-radius: 4px;">chrome://extensions/</code> in your Chrome browser</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Enable Developer Mode</h3>
+                        <p>Toggle the "Developer mode" switch in the top-right corner of the extensions page</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Load the Extension</h3>
+                        <p>Click "Load unpacked" and select the <code style="background-color: var(--bg-tertiary); padding: 2px 5px; border-radius: 4px;">extension</code> folder from the downloaded repository</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Start Using Memory Lane</h3>
+                        <p>The extension is now installed and ready to use! Click the Memory Lane icon in your browser toolbar to get started</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage">
+        <div class="container">
+            <div class="section-title">
+                <h2>How to Use</h2>
+                <p>Make the most of Memory Lane with these simple workflows</p>
+            </div>
+            <div class="usage-container">
+                <div class="usage-item">
+                    <h3>📌 Saving a Page</h3>
+                    <p>Click the Memory Lane icon in your browser toolbar, add notes and tags about why you're saving the page, then click "Save Memory". Optionally, you can take a snapshot of the current page state.</p>
+                </div>
+                <div class="usage-item">
+                    <h3>🔍 Revisiting a Page</h3>
+                    <p>When you visit a previously saved page, a small popup will appear in the corner of your screen showing your notes, tags, and the date you saved it. You can minimize this popup or click to expand it for more details.</p>
+                </div>
+                <div class="usage-item">
+                    <h3>📚 Viewing All Memories</h3>
+                    <p>Click "View All Memories" in the popup to see a timeline of all your saved pages. You can filter by date, search for specific content, or browse by tags to find exactly what you're looking for.</p>
+                </div>
+                <div class="usage-item">
+                    <h3>⚙️ Customizing Settings</h3>
+                    <p>Access the settings page to customize your experience. You can enable or disable features like automatic snapshots, Wayback Machine integration, and popup behavior.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technology Stack</h2>
+                <p>Built with modern web technologies</p>
+            </div>
+            <div class="tech-stack">
+                <div class="tech-item">
+                    <div class="tech-icon">JS</div>
+                    <p>JavaScript</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">HTML</div>
+                    <p>HTML5</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">CSS</div>
+                    <p>CSS3</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">⚙️</div>
+                    <p>Chrome API</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">🔄</div>
+                    <p>Wayback API</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">📦</div>
+                    <p>Manifest V3</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="copyright">
+                &copy; 2025 Memory Lane. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/chirag127/Memory-Lane" target="_blank">GitHub</a>
+                <a href="privacy-policy.html" target="_blank">Privacy Policy</a>
+                <a href="https://github.com/chirag127/Memory-Lane/issues" target="_blank">Report Issues</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Reveal animations on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .step, .tech-item, .usage-item, .section-title h2, .section-title p').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Memory Lane</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #121212;
+            --bg-secondary: #1e1e1e;
+            --bg-tertiary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent-primary: #4a90e2;
+            --accent-secondary: #3a80d2;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+            --container-width: 900px;
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        header {
+            padding: var(--spacing-md) 0;
+            background-color: var(--bg-secondary);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-button {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: color var(--transition-speed) ease;
+        }
+
+        .back-button:hover {
+            color: var(--accent-primary);
+        }
+
+        .back-icon {
+            font-size: 1.2rem;
+        }
+
+        .title-container h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .main-content {
+            padding: var(--spacing-lg) 0;
+        }
+
+        .policy-section {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .policy-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        .policy-section p {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .policy-section ul, .policy-section ol {
+            margin-bottom: var(--spacing-sm);
+            padding-left: var(--spacing-md);
+        }
+
+        .policy-section li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .policy-section a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+        }
+
+        .policy-section a:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        .permission-item {
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .permission-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 600;
+        }
+
+        .permission-item p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .highlight-box {
+            background-color: var(--bg-tertiary);
+            border-left: 4px solid var(--accent-primary);
+            padding: var(--spacing-sm);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        footer {
+            background-color: var(--bg-secondary);
+            padding: var(--spacing-md) 0;
+            margin-top: var(--spacing-xl);
+            text-align: center;
+        }
+
+        .footer-content {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-top: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            margin: 0 var(--spacing-xs);
+            transition: color var(--transition-speed) ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-secondary);
+            text-decoration: underline;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+                text-align: center;
+            }
+
+            .back-button {
+                margin-bottom: var(--spacing-xs);
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="back-button">
+                <span class="back-icon">←</span>
+                <span>Back to Home</span>
+            </a>
+            <div class="title-container">
+                <h1>Privacy Policy</h1>
+            </div>
+            <div style="width: 100px;"></div> <!-- Spacer for alignment -->
+        </div>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <div class="last-updated">
+                Last Updated: April 7, 2025
+            </div>
+
+            <div class="policy-section animate">
+                <h2>Introduction</h2>
+                <p>
+                    Welcome to Memory Lane's Privacy Policy. This document outlines how the Memory Lane browser extension collects, uses, and protects your information. We are committed to ensuring that your privacy is protected and that you have a transparent understanding of our data practices.
+                </p>
+                <p>
+                    Memory Lane is designed with privacy in mind. Our primary goal is to enhance your browsing experience by helping you remember why you bookmarked pages, without compromising your privacy or security.
+                </p>
+            </div>
+
+            <div class="policy-section animate delay-1">
+                <h2>Required Permissions</h2>
+                <p>
+                    Memory Lane requires certain browser permissions to function properly. Below is a detailed explanation of each permission and why it's necessary:
+                </p>
+                
+                <div class="permission-item">
+                    <h3>storage</h3>
+                    <p>
+                        This permission allows Memory Lane to save your bookmarks, notes, tags, and preferences locally on your device. Without this permission, the extension would not be able to remember your saved memories between browser sessions.
+                    </p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3>tabs</h3>
+                    <p>
+                        This permission allows Memory Lane to access information about your currently open tabs. It's necessary to detect when you're visiting a page that you've previously saved, so we can show you your notes and context.
+                    </p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3>bookmarks</h3>
+                    <p>
+                        This permission allows Memory Lane to interact with your browser's bookmark system. It's used to enhance your existing bookmarks with additional context and notes.
+                    </p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3>activeTab</h3>
+                    <p>
+                        This permission gives Memory Lane temporary access to the currently active tab when you click the extension icon. It's used to capture the URL, title, and optionally a snapshot of the current page when you save a memory.
+                    </p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3>scripting</h3>
+                    <p>
+                        This permission allows Memory Lane to inject content scripts into web pages. It's necessary for displaying the memory popup when you revisit a saved page.
+                    </p>
+                </div>
+                
+                <div class="permission-item">
+                    <h3>host_permissions (&lt;all_urls&gt;)</h3>
+                    <p>
+                        This permission allows Memory Lane to work on any website you visit. It's necessary for detecting when you're visiting a previously saved page and for capturing page snapshots.
+                    </p>
+                </div>
+            </div>
+
+            <div class="policy-section animate delay-2">
+                <h2>Information We Collect</h2>
+                <p>
+                    Memory Lane collects and stores the following information:
+                </p>
+                <ul>
+                    <li><strong>URLs and page titles</strong> of websites you choose to save</li>
+                    <li><strong>Notes and tags</strong> that you add when saving a page</li>
+                    <li><strong>Timestamps</strong> of when you saved a page</li>
+                    <li><strong>Visual snapshots</strong> of pages (only if you enable this feature)</li>
+                    <li><strong>User preferences</strong> for extension settings</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p>
+                        <strong>What we DO NOT collect:</strong>
+                    </p>
+                    <ul>
+                        <li>Your browsing history beyond the pages you explicitly save</li>
+                        <li>Personal information such as names, email addresses, or payment details</li>
+                        <li>Information from form fields, passwords, or login credentials</li>
+                        <li>Any data from incognito/private browsing sessions</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2>How We Use Your Information</h2>
+                <p>
+                    The information collected by Memory Lane is used exclusively for the following purposes:
+                </p>
+                <ul>
+                    <li>To display your saved notes, tags, and context when you revisit a bookmarked page</li>
+                    <li>To provide a searchable and filterable timeline of your saved memories</li>
+                    <li>To customize the extension's behavior based on your preferences</li>
+                </ul>
+                <p>
+                    <strong>We do not:</strong>
+                </p>
+                <ul>
+                    <li>Sell or rent your data to third parties</li>
+                    <li>Use your data for advertising or marketing purposes</li>
+                    <li>Share your data with any external services unless explicitly requested by you (e.g., when using the Wayback Machine integration)</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>Data Storage & Security</h2>
+                <p>
+                    Memory Lane stores all your data locally on your device using the browser's built-in storage APIs. By default, no data is transmitted to external servers.
+                </p>
+                <p>
+                    Your data is stored in the following ways:
+                </p>
+                <ul>
+                    <li><strong>chrome.storage.local</strong>: Used to store your memories, notes, tags, and preferences</li>
+                    <li><strong>Local snapshots</strong>: Visual snapshots are stored as data URLs in local storage</li>
+                </ul>
+                <p>
+                    We take reasonable precautions to protect your information, but please be aware that no method of electronic storage is 100% secure. We encourage you to regularly back up your data using the export feature.
+                </p>
+            </div>
+
+            <div class="policy-section">
+                <h2>Third-Party Services</h2>
+                <p>
+                    Memory Lane may interact with the following third-party services if you enable the related features:
+                </p>
+                <div class="permission-item">
+                    <h3>Internet Archive's Wayback Machine</h3>
+                    <p>
+                        If you enable the Wayback Machine integration, Memory Lane will send URLs of pages you save to the Internet Archive's Wayback Machine to create an archived snapshot. This is an optional feature that you can disable in the settings.
+                    </p>
+                    <p>
+                        For more information about the Wayback Machine's privacy practices, please visit: <a href="https://archive.org/about/terms.php" target="_blank">Internet Archive Terms of Service</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="policy-section">
+                <h2>User Rights</h2>
+                <p>
+                    As a user of Memory Lane, you have the following rights regarding your data:
+                </p>
+                <ul>
+                    <li><strong>Access</strong>: You can view all your saved memories through the extension's interface</li>
+                    <li><strong>Export</strong>: You can export your data at any time using the export feature</li>
+                    <li><strong>Modification</strong>: You can edit or update your saved notes and tags at any time</li>
+                    <li><strong>Deletion</strong>: You can delete individual memories or clear all data through the extension's interface</li>
+                    <li><strong>Uninstallation</strong>: Uninstalling the extension will remove all locally stored data</li>
+                </ul>
+            </div>
+
+            <div class="policy-section">
+                <h2>Changes to This Privacy Policy</h2>
+                <p>
+                    We may update our Privacy Policy from time to time. We will notify you of any changes by:
+                </p>
+                <ul>
+                    <li>Posting the new Privacy Policy on this page</li>
+                    <li>Updating the "Last Updated" date at the top of this page</li>
+                    <li>Displaying a notification within the extension when significant changes are made</li>
+                </ul>
+                <p>
+                    We recommend checking this page periodically for any changes. Your continued use of Memory Lane after we post changes to the Privacy Policy will constitute your acknowledgment of the changes and your consent to abide by the updated terms.
+                </p>
+            </div>
+
+            <div class="policy-section">
+                <h2>Contact Information</h2>
+                <p>
+                    If you have any questions or concerns about this Privacy Policy or Memory Lane's data practices, please contact us by:
+                </p>
+                <ul>
+                    <li>Opening an issue on our <a href="https://github.com/chirag127/Memory-Lane/issues" target="_blank">GitHub repository</a></li>
+                    <li>Contacting the developer directly through GitHub</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div>
+                &copy; 2025 Memory Lane. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="https://github.com/chirag127/Memory-Lane" target="_blank">GitHub</a>
+                <a href="https://github.com/chirag127/Memory-Lane/issues" target="_blank">Report Issues</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal animations on scroll
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.policy-section:not(.animate)').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
