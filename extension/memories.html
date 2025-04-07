@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Lane - All Memories</title>
+  <link rel="stylesheet" href="css/memories.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Memory Lane</h1>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search memories...">
+      </div>
+    </header>
+    
+    <div class="filters">
+      <div class="filter-group">
+        <label for="filter-type">Filter by:</label>
+        <select id="filter-type">
+          <option value="all">All Memories</option>
+          <option value="tag">Tag</option>
+          <option value="date">Date</option>
+        </select>
+      </div>
+      
+      <div class="filter-tag filter-option hidden">
+        <select id="tag-select">
+          <option value="">Select a tag</option>
+        </select>
+      </div>
+      
+      <div class="filter-date filter-option hidden">
+        <input type="date" id="date-from">
+        <span>to</span>
+        <input type="date" id="date-to">
+      </div>
+      
+      <button id="clear-filters" class="text-btn">Clear Filters</button>
+    </div>
+    
+    <div class="view-options">
+      <button id="grid-view-btn" class="view-btn active">
+        <span class="icon">⊞</span> Grid
+      </button>
+      <button id="list-view-btn" class="view-btn">
+        <span class="icon">≡</span> List
+      </button>
+      <button id="timeline-view-btn" class="view-btn">
+        <span class="icon">⌚</span> Timeline
+      </button>
+    </div>
+    
+    <div id="memories-container" class="grid-view">
+      <!-- Memories will be inserted here by JavaScript -->
+      <div class="empty-state hidden">
+        <p>You haven't saved any memories yet.</p>
+        <p>Start browsing and save pages to see them here!</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="js/memories.js"></script>
+</body>
+</html>

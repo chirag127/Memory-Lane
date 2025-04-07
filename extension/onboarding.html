@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to Memory Lane</title>
+  <link rel="stylesheet" href="css/onboarding.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome to Memory Lane</h1>
+      <p class="subtitle">Your personal web memory assistant</p>
+    </header>
+    
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h2>Save pages with context</h2>
+          <p>When you find a page worth remembering, click the Memory Lane icon in your browser toolbar.</p>
+          <p>Add notes about why you're saving the page and what's important about it.</p>
+          <div class="step-image">
+            <img src="images/step1.png" alt="Save a page">
+          </div>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h2>Revisit with memories intact</h2>
+          <p>When you return to a saved page, Memory Lane will show you your notes and the date you saved it.</p>
+          <p>Never forget why you bookmarked something again!</p>
+          <div class="step-image">
+            <img src="images/step2.png" alt="Revisit a page">
+          </div>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h2>Browse your memory timeline</h2>
+          <p>View all your saved memories in a timeline, organized by date or tags.</p>
+          <p>Search through your memories to find exactly what you're looking for.</p>
+          <div class="step-image">
+            <img src="images/step3.png" alt="Browse memories">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h2>Quick Settings</h2>
+      <div class="settings">
+        <div class="setting">
+          <label for="take-snapshot">
+            <input type="checkbox" id="take-snapshot" checked>
+            Take page snapshots by default
+          </label>
+          <p class="setting-description">Save a visual snapshot of pages when you bookmark them</p>
+        </div>
+        
+        <div class="setting">
+          <label for="show-popup">
+            <input type="checkbox" id="show-popup" checked>
+            Show popup on revisit
+          </label>
+          <p class="setting-description">Display your notes when you revisit a bookmarked page</p>
+        </div>
+        
+        <div class="setting">
+          <label for="use-wayback">
+            <input type="checkbox" id="use-wayback" checked>
+            Use Wayback Machine
+          </label>
+          <p class="setting-description">Save pages to the Internet Archive's Wayback Machine</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="actions">
+      <button id="start-btn" class="primary-btn">Start Using Memory Lane</button>
+    </div>
+  </div>
+  
+  <script src="js/onboarding.js"></script>
+</body>
+</html>

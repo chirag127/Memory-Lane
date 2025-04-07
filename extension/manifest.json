@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Memory Lane",
+  "version": "1.0.0",
+  "description": "Brings context and nostalgia to your web browsing by surfacing notes and snapshots from when you originally bookmarked a page.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "bookmarks",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"],
+      "css": ["css/content.css"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+}
